@@ -1,0 +1,50 @@
+{
+  "main": "app.js",
+  "name": "nativescript-vue-webpack",
+  "version": "0.1.0",
+  "description": "NativeScript Vue Application",
+  "license": "SEE LICENSE IN LICENSE",
+  "readme": "README.md",
+  "repository": "https://github.com/tralves/nativescript-vue-webpack-template",
+  "nativescript": {
+    "id": "org.nativescript.vuewebpacksample",
+    "tns-android": {
+      "version": "3.0.0"
+    },
+    "tns-ios": {
+      "version": "3.0.1"
+    }
+  },
+  "dependencies": {
+    "nativescript-theme-core": "~1.0.2",
+    "nativescript-vue": "tralves/nativescript-vue",
+    "tns-core-modules": "^3.0.0",
+    "vue-router": "^2.4.0"
+  },
+  "devDependencies": {
+    "babel-traverse": "6.24.1",
+    "babel-types": "6.24.1",
+    "babylon": "6.16.1",
+    "copy-webpack-plugin": "~4.0.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "~2.1.0",
+    "lazy": "1.0.11",
+    "nativescript-css-loader": "~0.26.0",
+    "nativescript-dev-android-snapshot": "^0.*.*",
+    "nativescript-dev-webpack": "^0.6.3",
+    "raw-loader": "~0.5.1",
+    "resolve-url-loader": "~2.0.2",
+    "vue-loader": "^12.2.1",
+    "vue-template-compiler": "2.3.0",
+    "webpack": "~2.6.1",
+    "webpack-sources": "~1.0.1"
+  },
+  "scripts": {
+    "ns-bundle": "ns-bundle",
+    "publish-ios-bundle": "npm run ns-bundle --ios --publish-app",
+    "start-android-bundle": "npm run ns-bundle --android --run-app",
+    "start-ios-bundle": "npm run ns-bundle --ios --run-app",
+    "build-android-bundle": "npm run ns-bundle --android --build-app",
+    "build-ios-bundle": "npm run ns-bundle --ios --build-app"
+  }
+}
