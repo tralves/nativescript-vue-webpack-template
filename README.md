@@ -13,18 +13,12 @@ This template was born ready for Vue single file components (`.vue` files)!
 tns create hello-ns-vue --template https://github.com/tralves/nativescript-vue-webpack-template
 ```
 
-3. Install dependencies
-```bash
+3. Run in Android or iOS (see: [{NS} documentation on webpack bundling](https://docs.nativescript.org/tooling/bundling-with-webpack#bundling))
+```
 cd hello-ns-vue
-npm install
-```
-> Note: do not use `yarn`.
-
-4. Run in Android or iOS (see: [{NS} documentation on webpack bundling](https://docs.nativescript.org/tooling/bundling-with-webpack#bundling))
-```
 npm run start-android-bundle -- --clean
 npm run start-ios-bundle -- --clean
 ```
 
-5. Code!
+4. Code!
 You will find more sample code [here](https://github.com/tralves/nativescript-vue/tree/master/samples).
