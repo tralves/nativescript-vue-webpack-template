@@ -2,7 +2,9 @@
 
 This repo serves as the starting point for NativeScript + Vue.js projects, using [nativescript-vue](https://github.com/rigor789/nativescript-vue).
 
-This template was born ready for Vue single file components (`.vue` files)!
+This template was born ready for Vue single file components\* (`.vue` files)!
+
+*(\*) Er... almost... the `<style>` section isn't working yet...*
 
 # Usage
 
