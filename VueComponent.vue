@@ -11,3 +11,9 @@ export default {
     }
 }
 </script>
+
+<style type="text/css">
+	label{
+		color: red;
+	}
+</style>
