@@ -111,7 +111,10 @@ function getRules() {
         // .vue single file component support
         {
             test: /\.vue$/,
-            loader: 'vue-loader'
+            loader: 'vue-loader',
+            options: {
+                extractCSS: true
+            }
         },
     ];
 }
