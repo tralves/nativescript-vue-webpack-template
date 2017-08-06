@@ -7,6 +7,8 @@ const http = require("http")
 import JsComponent from './JsComponent';
 import VueComponent from './VueComponent';
 
+import './app.scss'
+
 Vue.prototype.$http = http
 
 new Vue({
