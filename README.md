@@ -4,8 +4,6 @@ This repo serves as the starting point for NativeScript + Vue.js projects, using
 
 This template was born ready for Vue single file components\* (`.vue` files)!
 
-*(\*) Er... almost... the `<style>` section isn't working yet...*
-
 # Usage
 
 1. Install NativeScript tools (see http://docs.nativescript.org/start/quick-setup)

@@ -136,7 +136,7 @@ function getPlugins(platform, env) {
 
         new MergeFilesPlugin({
             filename: 'app.css',
-            test: /app-[0-1]\.css/, // it could also be a string
+            test: /app-[0-1]\.css/,
             deleteSourceFiles: true
         }),
 
