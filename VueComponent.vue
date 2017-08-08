@@ -12,8 +12,18 @@ export default {
 }
 </script>
 
-<style type="text/css">
+<!--
+<style type="text/css" scoped>
 	label {
 		color: red;
+	}
+</style>
+-->
+
+<style lang="scss" scoped>
+	$red: red;
+
+	label {
+		color: $red;
 	}
 </style>

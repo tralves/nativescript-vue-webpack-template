@@ -5,7 +5,10 @@ const nsWebpack = require("nativescript-dev-webpack");
 const nativescriptTarget = require("nativescript-dev-webpack/nativescript-target");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var MergeFilesPlugin = require('merge-files-webpack-plugin');
 
+const extractMainSheet = new ExtractTextPlugin('app-0.css');
+const extractCSS = new ExtractTextPlugin('app-1.css');
 
 const mainSheet = `app.css`;
 
@@ -79,7 +82,7 @@ function getRules() {
         // Root stylesheet gets extracted with bundled dependencies
         {
             test: new RegExp(mainSheet),
-            use: ExtractTextPlugin.extract([
+            loader: extractMainSheet.extract([
                 {
                     loader: "resolve-url-loader",
                     options: { silent: true },
@@ -95,25 +98,30 @@ function getRules() {
         {
             test: /\.css$/,
             exclude: new RegExp(mainSheet),
-            use: [
-                "raw-loader",
-            ]
+            loader: extractCSS.extract({ fallback: 'style-loader', use: 'css-loader' })
+ 
         },
         // SASS support
         {
-            test: /\.scss$/,
-            use: [
-                "raw-loader",
-                "resolve-url-loader",
-                "sass-loader",
-            ]
+             test: /\.s[a|c]ss$/,
+             loader: extractCSS.extract({
+                        use: ['css-loader', 'sass-loader'],
+                        fallback: 'vue-style-loader'
+                    })
+ 
         },
         // .vue single file component support
         {
             test: /\.vue$/,
             loader: 'vue-loader',
             options: {
-                extractCSS: true
+                loaders : {
+                    css : extractCSS.extract("css-loader"),
+                    scss : extractCSS.extract({
+                        use: ['css-loader', 'sass-loader'],
+                        fallback: 'vue-style-loader'
+                    })
+                }
             }
         },
     ];
@@ -121,7 +129,16 @@ function getRules() {
 
 function getPlugins(platform, env) {
     let plugins = [
-        new ExtractTextPlugin(mainSheet),
+
+        extractMainSheet,
+        extractCSS,
+
+
+        new MergeFilesPlugin({
+            filename: 'app.css',
+            test: /app-[0-1]\.css/,
+            deleteSourceFiles: true
+        }),
 
         // Vendor libs go to the vendor.js chunk
         new webpack.optimize.CommonsChunkPlugin({
@@ -135,7 +152,7 @@ function getPlugins(platform, env) {
 
         // Copy assets to out dir. Add your own globs as needed.
         new CopyWebpackPlugin([
-            { from: mainSheet },
+            //{ from: mainSheet },
             { from: "css/**" },
             { from: "fonts/**" },
             { from: "**/*.jpg" },
