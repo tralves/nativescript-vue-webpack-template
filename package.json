@@ -6,17 +6,8 @@
   "license": "SEE LICENSE IN LICENSE",
   "readme": "README.md",
   "repository": "https://github.com/tralves/nativescript-vue-webpack-template",
-  "nativescript": {
-    "id": "org.nativescript.vuewebpacksample",
-    "tns-android": {
-      "version": "3.0.0"
-    },
-    "tns-ios": {
-      "version": "3.0.1"
-    }
-  },
   "dependencies": {
-    "nativescript-theme-core": "~1.0.2",
+    "nativescript-theme-core": "~1.0.4",
     "nativescript-vue": "^0.1.1",
     "tns-core-modules": "^3.0.0",
     "vue-router": "^2.4.0"

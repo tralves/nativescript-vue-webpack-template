@@ -4,16 +4,16 @@
 
 <script>
 export default {
-    data: () => {
-        return {
-            val: 'Vue.js'
-        }
+  data: () => {
+    return {
+      val: 'Vue.js'
     }
+  }
 }
 </script>
 
 <style type="text/css">
-	label{
+	label {
 		color: red;
 	}
 </style>
