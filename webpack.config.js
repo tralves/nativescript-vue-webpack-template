@@ -64,7 +64,6 @@ module.exports = env => {
     };
 };
 
-
 function getPlatform(env) {
     return env.android ? "android" :
         env.ios ? "ios" :
@@ -129,10 +128,8 @@ function getRules() {
 
 function getPlugins(platform, env) {
     let plugins = [
-
         extractMainSheet,
         extractCSS,
-
 
         new MergeFilesPlugin({
             filename: 'app.css',
