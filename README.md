@@ -4,6 +4,8 @@ This repo serves as the starting point for NativeScript + Vue.js projects, using
 
 This template creates a project ready to use with Vue single file components\* (`.vue` files)!
 
+> **RECOMMENDATION:** We recommend using the [rollup template](https://github.com/tralves/nativescript-vue-rollup-template) as it is more up-to-date and supports liveSync!
+
 ## Usage
 
 1. Install NativeScript tools (see http://docs.nativescript.org/start/quick-setup)
