@@ -31,7 +31,7 @@
     "style-loader": "^0.18.2",
     "vue-loader": "^12.2.1",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "2.3.0",
+    "vue-template-compiler": "2.5.2",
     "webpack": "~2.6.1",
     "webpack-sources": "~1.0.1"
   },
@@ -42,6 +42,8 @@
     "start-ios-bundle": "npm run ns-bundle --ios --run-app",
     "build-android-bundle": "npm run ns-bundle --android --build-app",
     "build-ios-bundle": "npm run ns-bundle --ios --build-app",
+    "watch-android-bundle": "webpack --watch --env.tns --env.android",
+    "watch-ios-bundle": "webpack --watch --env.tns --env.ios",
     "postinstall": "node postinstall.js"
   }
 }
