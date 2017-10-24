@@ -34,5 +34,5 @@ npm run start-android-bundle -- --clean
 npm run start-ios-bundle -- --clean
 ```
 
-4. Code!
+5. Code!
 You will find more sample code [here](https://github.com/tralves/nativescript-vue/tree/master/samples).
