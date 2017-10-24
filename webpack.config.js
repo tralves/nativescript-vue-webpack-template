@@ -1,4 +1,4 @@
-const { resolve, join  } = require("path");
+const { resolve, join } = require("path");
 
 const webpack = require("webpack");
 const nsWebpack = require("nativescript-dev-webpack");
@@ -15,8 +15,8 @@ const mainSheet = `app.css`;
 module.exports = env => {
     const platform = getPlatform(env);
 
-    // Default destination inside platforms/<platform>/...
-    const path = resolve(nsWebpack.getAppPath(platform));
+    // tns/app -or- default destination inside platforms/<platform>/...
+    const path = env.tns ? resolve('tns/app') : resolve(nsWebpack.getAppPath(platform));
 
     const entry = {
         // Discover entry module from package.json
@@ -67,7 +67,7 @@ module.exports = env => {
 function getPlatform(env) {
     return env.android ? "android" :
         env.ios ? "ios" :
-        () => { throw new Error("You need to provide a target platform!") };
+            () => { throw new Error("You need to provide a target platform!") };
 }
 
 function getRules() {
@@ -98,25 +98,25 @@ function getRules() {
             test: /\.css$/,
             exclude: new RegExp(mainSheet),
             loader: extractCSS.extract({ fallback: 'style-loader', use: 'css-loader' })
- 
+
         },
         // SASS support
         {
-             test: /\.s[a|c]ss$/,
-             loader: extractCSS.extract({
-                        use: ['css-loader', 'sass-loader'],
-                        fallback: 'vue-style-loader'
-                    })
- 
+            test: /\.s[a|c]ss$/,
+            loader: extractCSS.extract({
+                use: ['css-loader', 'sass-loader'],
+                fallback: 'vue-style-loader'
+            })
+
         },
         // .vue single file component support
         {
             test: /\.vue$/,
             loader: 'vue-loader',
             options: {
-                loaders : {
-                    css : extractCSS.extract("css-loader"),
-                    scss : extractCSS.extract({
+                loaders: {
+                    css: extractCSS.extract("css-loader"),
+                    scss: extractCSS.extract({
                         use: ['css-loader', 'sass-loader'],
                         fallback: 'vue-style-loader'
                     })
@@ -183,9 +183,11 @@ function getExtensions(platform) {
     return Object.freeze([
         `.${platform}.js`,
         ".js",
-        ".css",
         `.${platform}.css`,
-        ".vue",
+        ".css",
+        `.${platform}.scss`,
+        ".scss",
         `.${platform}.vue`,
+        ".vue",
     ]);
 }
