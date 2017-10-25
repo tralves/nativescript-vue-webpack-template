@@ -23,9 +23,9 @@ webpack --watch --env.tns --env.android
 webpack --watch --env.tns --env.ios
 
 # terminal 2
-cd tns && tns run android
+cd tns && tns debug android
 # or
-cd tns && tns run ios
+cd tns && tns debug ios
 ```
 
 4. Bundle Android or iOS for deploy (see: [{NS} documentation on webpack bundling](https://docs.nativescript.org/tooling/bundling-with-webpack#bundling))
