@@ -102,14 +102,26 @@ function getRules() {
     {
       test: /\.css$/,
       exclude: new RegExp(mainSheet),
-      loader: extractCSS.extract({ fallback: 'style-loader', use: 'css-loader' })
+      loader: extractCSS.extract({
+        fallback: 'style-loader',
+        use: {
+          loader: 'css-loader',
+          options: { url: false }
+        }
+      })
 
     },
     // SASS support
     {
       test: /\.s[a|c]ss$/,
       loader: extractCSS.extract({
-        use: ['css-loader', 'sass-loader'],
+        use: [
+          {
+            loader: 'css-loader',
+            options: { url: false }
+          },
+          'sass-loader'
+        ],
         fallback: 'vue-style-loader'
       })
 
@@ -122,12 +134,18 @@ function getRules() {
         loaders: {
           css: extractCSS.extract("css-loader"),
           scss: extractCSS.extract({
-            use: ['css-loader', 'sass-loader'],
+            use: [
+              {
+                loader: 'css-loader',
+                options: { url: false }
+              },
+              'sass-loader'
+            ],
             fallback: 'vue-style-loader'
           })
         }
       }
-    },
+    }
   ];
 }
 
