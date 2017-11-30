@@ -5,6 +5,11 @@ move(getMovePaths('webpack.config.js'), log);
 move(getMovePaths('.babelrc'), log);
 move(getMovePaths('tns'), log);
 
+console.log('listing files');
+fs.readdirSync(testFolder).forEach(file => {
+  console.log(file);
+})
+
 symlinkFromTns('package.json', 'file');
 symlinkFromTns('package-lock.json', 'file');
 symlinkFromTns('node-modules', 'dir');
@@ -27,12 +32,14 @@ function log(err) {
 }
 
 function symlinkFromTns(file, type) {
+  console.log('linking ', path.join(__dirname, '..', '..', file), path.join(__dirname, '..', '..', 'tns', file));
+
   if (fs.existsSync(path.join(__dirname, '..', '..', 'tns', file))) {
     fs.unlinkSync(path.join(__dirname, '..', '..', 'tns', file));
   }
   fs.symlinkSync(
-    path.join(__dirname, '..', '..', 'tns', file),
     path.join(__dirname, '..', '..', file),
+    path.join(__dirname, '..', '..', 'tns', file),
     type);
 }
 
