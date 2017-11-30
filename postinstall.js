@@ -28,8 +28,8 @@ function log(err) {
 
 function symlinkFromTns(file, type) {
   fs.symlinkSync(
-    path.join(__dirname, '..', '..', file),
     path.join(__dirname, '..', '..', 'tns', file),
+    path.join(__dirname, '..', '..', file),
     type);
 }
 
