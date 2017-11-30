@@ -27,7 +27,6 @@ function log(err) {
 }
 
 function symlinkFromTns(file, type) {
-  fs.unlinkSync(path.join(__dirname, '..', '..', 'tns', file));
   fs.symlinkSync(
     path.join(__dirname, '..', '..', file),
     path.join(__dirname, '..', '..', 'tns', file),
