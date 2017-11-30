@@ -4,6 +4,7 @@ const path = require('path');
 move(getMovePaths('webpack.config.js'), log);
 move(getMovePaths('.babelrc'), log);
 move(getMovePaths('tns'), log);
+
 symlinkFromTns('package.json', 'file');
 symlinkFromTns('package-lock.json', 'file');
 symlinkFromTns('node-modules', 'dir');
@@ -26,6 +27,7 @@ function log(err) {
 }
 
 function symlinkFromTns(file, type) {
+  fs.unlinkSync(__dirname, '..', '..', 'tns', file);
   fs.symlinkSync(
     path.join(__dirname, '..', '..', 'tns', file),
     path.join(__dirname, '..', '..', file),
