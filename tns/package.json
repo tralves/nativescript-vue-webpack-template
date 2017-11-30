@@ -11,7 +11,7 @@
 	},
 	"dependencies": {
 		"nativescript-theme-core": "~1.0.2",
-		"nativescript-vue": "^0.1.6",
+		"nativescript-vue": "^0.3.0",
 		"tns-core-modules": "~3.2.0"
 	},
 	"devDependencies": {
