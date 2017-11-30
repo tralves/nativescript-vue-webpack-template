@@ -6,7 +6,7 @@ move(getMovePaths('.babelrc'), log);
 move(getMovePaths('tns'), log);
 
 console.log('listing files');
-fs.readdirSync(testFolder).forEach(file => {
+fs.readdirSync(path.join(__dirname, '..', '..','tns')).forEach(file => {
   console.log(file);
 })
 
