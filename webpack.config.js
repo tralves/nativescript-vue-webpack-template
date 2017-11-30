@@ -129,7 +129,7 @@ function getRules() {
     // .vue single file component support
     {
       test: /\.vue$/,
-      loader: 'vue-loader',
+      loader: 'ns-vue-loader',
       options: {
         loaders: {
           css: extractCSS.extract("css-loader"),
