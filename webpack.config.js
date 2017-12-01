@@ -45,6 +45,9 @@ module.exports = env => {
     },
     resolve: {
       extensions,
+      alias: {
+            '~': join(__dirname, 'tns', 'app')
+      },
 
       // Resolve {N} system modules from tns-core-modules
       modules: [
