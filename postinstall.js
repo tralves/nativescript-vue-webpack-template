@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const symlinkOrCopySync = require('symlink-or-copy').sync;
 
 move(getMovePaths('webpack.config.js'), log);
 move(getMovePaths('.babelrc'), log);
@@ -37,7 +38,7 @@ function symlinkFromTns(file, type) {
   if (fs.existsSync(path.join(__dirname, '..', '..', 'tns', file))) {
     fs.unlinkSync(path.join(__dirname, '..', '..', 'tns', file));
   }
-  fs.symlinkSync(
+  symlinkOrCopySync(
     path.join(__dirname, '..', '..', file),
     path.join(__dirname, '..', '..', 'tns', file),
     type);
