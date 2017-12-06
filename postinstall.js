@@ -39,8 +39,8 @@ function symlinkFromTns(file, type) {
     fs.unlinkSync(path.join(__dirname, '..', '..', 'tns', file));
   }
   symlinkOrCopySync(
-    path.join(__dirname, '..', '..', file),
     path.join(__dirname, '..', '..', 'tns', file),
+    path.join(__dirname, '..', '..', file),
     type);
 }
 
