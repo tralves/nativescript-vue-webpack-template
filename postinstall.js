@@ -49,6 +49,7 @@ function symlinkFromTns(file, type) {
 
 // move function copied from: https://stackoverflow.com/questions/8579055/how-i-move-files-on-node-js
 function move({ oldPath, newPath }, callback) {
+  console.log("moving: " + oldPath + " -> " + newPath);
   fs.rename(oldPath, newPath, function (err) {
     if (err) {
       if (err.code === 'EXDEV') {
