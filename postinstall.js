@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
+const spawnSync = require('child_process').spawnSync;
 const symlinkOrCopySync = symlinkOrCopy().sync;
+
+spawnSync('npm', ['install'], { cwd: path.join(__dirname, '..', '..') });
 
 move(getMovePaths('webpack.config.js'), log);
 move(getMovePaths('.babelrc'), log);
@@ -12,7 +15,7 @@ fs.readdirSync(path.join(__dirname, '..', '..','tns')).forEach(file => {
 })
 
 symlinkFromTns('package.json', 'file');
-// symlinkFromTns('package-lock.json', 'file');
+symlinkFromTns('package-lock.json', 'file');
 symlinkFromTns('node-modules', 'dir');
 symlinkFromTns('app/App_Resources', 'dir');
 symlinkFromTns('app/images', 'dir');
