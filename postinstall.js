@@ -13,17 +13,9 @@ fs.readdirSync(path.join(__dirname, '..', '..','tns')).forEach(file => {
   console.log(file);
 })
 
-const npmInstall = spawnSync('npm', ['install'], { cwd: path.join(__dirname, '..', '..') });
-npmInstall.stdout.on('data', (data) => {
-  console.log(`npm install stdout: ${data}`);
-});
-
-npmInstall.stderr.on('data', (data) => {
-  console.log(`npm install stderr: ${data}`);
-});
-
-npmInstall.on('close', (code) => {
-  console.log(`npm install  exited with code ${code}`);
+const npmInstall = spawnSync('npm', ['install'], {
+  cwd: path.join(__dirname, '..', '..'),
+  stdio: 'inherit'
 });
 
 symlinkFromTns('package.json', 'file');
