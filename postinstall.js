@@ -18,8 +18,8 @@ const npmInstall = spawnSync('npm', ['install'], {
   stdio: 'inherit'
 });
 
-console.log('listing files');
-fs.readdirSync(path.join(__dirname, '..', '..')).forEach(file => {
+console.log('listing app files');
+fs.readdirSync(path.join(__dirname, '..', '..','app')).forEach(file => {
   console.log(file);
 })
 
