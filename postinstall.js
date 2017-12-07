@@ -3,7 +3,6 @@ const path = require('path');
 const spawnSync = require('child_process').spawnSync;
 const symlinkOrCopySync = symlinkOrCopy().sync;
 
-spawnSync('npm', ['install'], { cwd: path.join(__dirname, '..', '..') });
 
 move(getMovePaths('webpack.config.js'), log);
 move(getMovePaths('.babelrc'), log);
@@ -13,6 +12,19 @@ console.log('listing files');
 fs.readdirSync(path.join(__dirname, '..', '..','tns')).forEach(file => {
   console.log(file);
 })
+
+const npmInstall = spawnSync('npm', ['install'], { cwd: path.join(__dirname, '..', '..') });
+npmInstall.stdout.on('data', (data) => {
+  console.log(`npm install stdout: ${data}`);
+});
+
+npmInstall.stderr.on('data', (data) => {
+  console.log(`npm install stderr: ${data}`);
+});
+
+npmInstall.on('close', (code) => {
+  console.log(`npm install  exited with code ${code}`);
+});
 
 symlinkFromTns('package.json', 'file');
 symlinkFromTns('package-lock.json', 'file');
