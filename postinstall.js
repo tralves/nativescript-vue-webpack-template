@@ -25,7 +25,7 @@ fs.readdirSync(path.join(__dirname, '..', '..')).forEach(file => {
 
 symlinkFromTns('package.json', 'file');
 symlinkFromTns('package-lock.json', 'file');
-symlinkFromTns('node-modules', 'dir');
+symlinkFromTns('node_modules', 'dir');
 symlinkFromTns('app/App_Resources', 'dir');
 symlinkFromTns('app/images', 'dir');
 
