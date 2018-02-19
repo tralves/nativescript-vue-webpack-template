@@ -8,8 +8,8 @@
   "repository": "https://github.com/tralves/nativescript-vue-webpack-template",
   "dependencies": {
     "nativescript-theme-core": "~1.0.4",
-    "nativescript-vue": "^0.1.1",
-    "tns-core-modules": "^3.2.0"
+    "nativescript-vue": "^1.0.0",
+    "tns-core-modules": "^3.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
