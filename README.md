@@ -16,7 +16,7 @@ tns create hello-ns-vue --template https://github.com/tralves/nativescript-vue-w
 3. Watch for changes while developing
 
 In two separate terminals run:
-```
+```bash
 # terminal 1
 webpack --watch --env.tns --env.android
 # or
@@ -29,7 +29,7 @@ cd tns && tns debug ios
 ```
 
 4. Bundle Android or iOS for deploy (see: [{NS} documentation on webpack bundling](https://docs.nativescript.org/tooling/bundling-with-webpack#bundling))
-```
+```bash
 npm run start-android-bundle -- --clean
 npm run start-ios-bundle -- --clean
 ```
