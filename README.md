@@ -1,3 +1,6 @@
+# DEPRECATED!!!
+This template is being deprecated in favor of the [Vue Cli template](https://github.com/nativescript-vue/vue-cli-template). There are some serious problems that `vue-cli` simply deals with much nicely. 
+
 # NativeScript Vue.js Template
 
 This repo serves as the starting point for NativeScript + Vue.js projects, using [nativescript-vue](https://github.com/rigor789/nativescript-vue).
